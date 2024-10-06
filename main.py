@@ -46,33 +46,28 @@ class CursorInstallerApp(QWidget):
             self.label.setText("Please enter a valid destination folder name.")
             return
 
-        # Create the output directory if it doesn't exist
         output_dir = os.path.join(self.cursor_folder, "cursors")
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
 
         try:
-            # Iterate over each file in the selected folder
             self.label.setText("Converting Windows cursors to Linux-compatible format...")
             for filename in os.listdir(self.cursor_folder):
                 if filename.endswith(".cur") or filename.endswith(".ani"):
                     input_file = os.path.join(self.cursor_folder, filename)
                     subprocess.run(['win2xcur', input_file, '-o', output_dir], check=True)
 
-            # Check if files were created in the output directory
             converted_files = os.listdir(output_dir)
             if not converted_files:
                 self.label.setText(f"Error: No files generated in {output_dir}. Conversion failed.")
                 return
 
-            # Search for any Install.inf files in the output directory
             install_files = [f for f in os.listdir(self.cursor_folder) if "Install.inf" in f]
 
             if not install_files:
                 self.label.setText(f"Error: No Install.inf file found in {output_dir}.")
                 return
 
-            # Run the bash script with sudo
             bash_script = "./cursor_setup.sh"
             subprocess.run(['sudo', 'bash', bash_script, self.cursor_folder, dest_folder_name], check=True)
 
