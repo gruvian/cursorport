@@ -1,4 +1,3 @@
-import sys
 import subprocess
 import os
 from PyQt5 import QtWidgets
@@ -12,6 +11,7 @@ class CursorInstallerApp(QtWidgets.QWidget):
         self.setWindowTitle('Windows to Ubuntu Cursor Installer')
 
         layout = QtWidgets.QVBoxLayout()
+        self.setLayout(layout)
 
         self.label = QtWidgets.QLabel('Select the folder with Windows cursors (.cur and .ani)')
         layout.addWidget(self.label)
@@ -31,7 +31,6 @@ class CursorInstallerApp(QtWidgets.QWidget):
         self.install_btn.clicked.connect(self.install_cursors)
         layout.addWidget(self.install_btn)
 
-        self.setLayout(layout)
         self.show()
 
     def select_folder(self):
