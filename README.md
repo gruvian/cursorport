@@ -18,7 +18,7 @@ If the cursors are not displaying and defaulting to system default cursor, check
 ```
 cd /usr/share/icons/default
 ```
-And if it exists and it's empty, you can safely remove it. 
+And if it exists and it's empty, you can safely remove it. <br />
 Make sure the terminal window in which you're running the script has sudo privileges.
 
 
