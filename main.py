@@ -1,9 +1,9 @@
 import sys
 import subprocess
 import os
-from PyQt5.QtWidgets import QApplication, QFileDialog, QVBoxLayout, QPushButton, QLabel, QLineEdit, QWidget
+from PyQt5 import QtWidgets
 
-class CursorInstallerApp(QWidget):
+class CursorInstallerApp(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
         self.initUI()
@@ -11,22 +11,22 @@ class CursorInstallerApp(QWidget):
     def initUI(self):
         self.setWindowTitle('Windows to Ubuntu Cursor Installer')
 
-        layout = QVBoxLayout()
+        layout = QtWidgets.QVBoxLayout()
 
-        self.label = QLabel('Select the folder with Windows cursors (.cur and .ani)')
+        self.label = QtWidgets.QLabel('Select the folder with Windows cursors (.cur and .ani)')
         layout.addWidget(self.label)
 
-        self.select_btn = QPushButton('Select Folder')
+        self.select_btn = QtWidgets.QPushButton('Select Folder')
         self.select_btn.clicked.connect(self.select_folder)
         layout.addWidget(self.select_btn)
 
-        self.dest_label = QLabel('Enter destination folder name:')
+        self.dest_label = QtWidgets.QLabel('Enter destination folder name:')
         layout.addWidget(self.dest_label)
 
-        self.dest_input = QLineEdit(self)
+        self.dest_input = QtWidgets.QLineEdit(self)
         layout.addWidget(self.dest_input)
 
-        self.install_btn = QPushButton('Convert and Install Cursors')
+        self.install_btn = QtWidgets.QPushButton('Convert and Install Cursors')
         self.install_btn.setEnabled(False)
         self.install_btn.clicked.connect(self.install_cursors)
         layout.addWidget(self.install_btn)
@@ -34,7 +34,7 @@ class CursorInstallerApp(QWidget):
         self.setLayout(layout)
 
     def select_folder(self):
-        folder = QFileDialog.getExistingDirectory(self, 'Select Cursor Folder')
+        folder = QtWidgets.QFileDialog.getExistingDirectory(self, 'Select Cursor Folder')
         if folder:
             self.cursor_folder = folder
             self.label.setText(f'Selected folder: {folder}')
@@ -77,10 +77,6 @@ class CursorInstallerApp(QWidget):
             self.label.setText(f"Error during cursor conversion or installation: {str(e)}")
 
 
-
-
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    window = CursorInstallerApp()
-    window.show()
-    sys.exit(app.exec_())
+app = QtWidgets.QApplication([])
+window = CursorInstallerApp()
+app.exec_()
