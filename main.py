@@ -32,6 +32,7 @@ class CursorInstallerApp(QtWidgets.QWidget):
         layout.addWidget(self.install_btn)
 
         self.setLayout(layout)
+        self.show()
 
     def select_folder(self):
         folder = QtWidgets.QFileDialog.getExistingDirectory(self, 'Select Cursor Folder')
