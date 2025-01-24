@@ -1,5 +1,9 @@
 # cursorport
-GUI Tool that automates both porting of converted cursor images with [win2xcur](https://github.com/quantum5/win2xcur) for Windows to Xcursor format and their installation for usage on Linux. 
+GUI Tool that automates both porting of converted cursor images for Windows to Xcursor format and their installation for usage on Linux. 
+### Status: In development
+The tool is currently relying on <a href="https://github.com/quantum5/win2xcur">win2xcur</a> for cursor format conversion. 
+Full development of cursor conversion is still in progress.
+
 ### Installation and running
 Clone the git repository and check if python3 and prerequisites are installed.
 ```shell
