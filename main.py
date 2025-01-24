@@ -62,10 +62,10 @@ class CursorInstallerApp(QtWidgets.QWidget):
                 self.label.setText(f"Error: No files generated in {output_dir}. Conversion failed.")
                 return
 
-            install_files = [f for f in os.listdir(self.cursor_folder) if "Install.inf" in f]
+            install_files = [f for f in os.listdir(self.cursor_folder) if ("Install.inf" in f or "install.inf" in f)]
 
             if not install_files:
-                self.label.setText(f"Error: No Install.inf file found in {output_dir}.")
+                self.label.setText(f"Error: No Install.inf file found in {self.cursor_folder}.")
                 return
 
             bash_script = "./cursor_setup.sh"
