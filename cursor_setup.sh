@@ -61,7 +61,7 @@ done
 
 # missing X11 names
 declare -A additional_mapping
-additional_mapping["pointer"]="default arrow mouse left_ptr top_left_arrow left-arrow pointing_hand hand1 e29285e634086352946a0e7090d73106 hand2"
+additional_mapping["pointer"]="default arrow mouse left_ptr top_left_arrow left-arrow pointing_hand hand1 right_ptr top_right_arrow right-arrow center_ptr e29285e634086352946a0e7090d73106 hand2"
 additional_mapping["work"]="working half-busy progress left_ptr_watch 00000000000000020006000e7e9ffc3f 08e8e1c95fe2fc01f976f1e063a24ccd 3ecb610c1bf2410f44200f48c40d3599 9116a3ea924ed2162ecab71ba103b17f"
 additional_mapping["busy"]="wait watch clock 0426c94ea35c87780ff01dc239897213"
 additional_mapping["text"]="xterm ibeam vertical-text crosshair 048008013003cff3c00c801001200000"
